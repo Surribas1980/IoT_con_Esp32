@@ -1,0 +1,70 @@
+import {useState, useEffect} from 'react';
+import { fetchPrueba } from './http/api';
+import './App.css';
+
+export default function App() {
+
+  useEffect (()=> {
+    const probar = async() => {
+      
+      const datorecibido = await fetchPrueba();
+      console.log('esto es lo recibido: ',datorecibido)
+      /*const datorecibido = await fetch('http://localhost:4000/envio')
+      .then((response)=>{
+        return response.json();
+      })
+      .then(function(myJson){
+        console.log('el json:',myJson);
+      })
+      .catch(
+        function(error){
+          console.log('Error' + error.message);
+        }
+      )
+      
+      console.log(' esto es el dato', datorecibido);*/
+    }
+    probar();
+   
+  },[]);
+  
+  return (
+    <div>
+      <h1>Hello StackBlitz!</h1>
+      <p>Start editing to see some magic happen :)</p>
+    </div>
+  );
+}
+
+/*
+import React, {Component} from 'react';
+
+class App extends Component{
+
+  constructor(){
+    super();
+  }
+
+  componentDidMount(){
+    //fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+    fetch('http://localhost:4000/envio')
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      console.log(response)
+    })
+  }
+
+  render(){
+    return (
+      <div className="App">
+
+      </div>
+    );
+  }
+
+}
+
+export default App;
+*/
